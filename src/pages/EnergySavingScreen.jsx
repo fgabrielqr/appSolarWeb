@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from 'react';
 import { contractDiscountTable } from '../services/EconomyData';
 import '../assets/styles/stylesCalculation.css';
