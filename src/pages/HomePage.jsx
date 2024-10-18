@@ -48,7 +48,7 @@ function HomePage() {
             onClick={() => navigate('/calculation')}
             className="button" // Adiciona classe para largura total
           >
-            <span>Comodato</span>
+            <span>Compensação</span>
           </Button>
           <Button
             variant="contained"
@@ -56,7 +56,7 @@ function HomePage() {
             onClick={() => navigate('/energy')}
             className="Buttons" // Adiciona classe para largura total
           >
-            <span>Compensação</span>
+            <span>Comodato</span>
           </Button>
         </div>
 
