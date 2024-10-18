@@ -134,7 +134,7 @@
   background-color: #7ec076 !important;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 10px !important;
   cursor: pointer;
   align-self: flex-end;
 }
@@ -144,14 +144,17 @@
   background-color: #fcbf02 !important;
   color: white;
   border: none;
-  border-radius: 10px;
+  border-radius: 10px !important;
   cursor: pointer;
   align-self: flex-end;
+  padding: 0.4rem 2rem !important;
 }
 
 .btnModal{
   display: flex;
-  gap: 15px
+  gap: 15px;
+  flex-wrap: wrap;
+
 }
 
 .buttonContainer {
