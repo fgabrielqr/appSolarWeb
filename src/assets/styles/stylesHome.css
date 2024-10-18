@@ -139,22 +139,13 @@
   align-self: flex-end;
 }
 
-.modalButtons{
-  margin-top: 25px !important;
-  background-color: #fcbf02 !important;
-  color: white;
-  border: none;
-  border-radius: 10px !important;
-  cursor: pointer;
-  align-self: flex-end;
-  padding: 0.4rem 2rem !important;
-}
-
-.btnModal{
+.btnModal {
   display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-
+  /* flex-direction: column; */
+  gap: 16px; /* Espaçamento vertical entre os botões */
+  width: 100%; /* Ocupa toda a largura do container */
+  margin-top: 20px; /* Ajuste de espaçamento superior */
+  justify-content: center;
 }
 
 .buttonContainer {
@@ -166,9 +157,21 @@
 .button {
   margin-top: 0px !important;
   background-color: #7ec076 !important;
-  padding: 10px !important;
+  padding: 18px !important;
   border-radius: 50px !important;
-  width: 25%;
+  width: 50%;
+  color: white;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.Buttons{
+  margin-top: 0px !important;
+  background-color: #fcbf02 !important;
+  padding: 18px !important;
+  border-radius: 50px !important;
+  width: 50%;
   color: white;
   border: none;
   cursor: pointer;
@@ -206,12 +209,18 @@
   .button {
     margin-top: 0px !important;
     background-color: #7ec076 !important;
-    padding: 22px !important;
+    padding: 18px !important;
     border-radius: 50px !important;
-    width: 0%; 
+    width: 50%; 
+  }
+  .Buttons{
+    margin-top: 0px !important;
+    padding: 18px !important;
+    border-radius: 50px !important;
+    width: 50%; 
   }
   .MuiButton-startIcon{
-    margin-right: 0px !important;
+    margin-right: 5px !important;
   }
   .title {
     font-size: 25px;
@@ -219,7 +228,7 @@
     color: #fcbf02;
   }
   span {
-    display: none;
+    /* display: none; */
   }
   .modalContainer {
     width: 80%;

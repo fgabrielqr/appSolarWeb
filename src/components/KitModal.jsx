@@ -35,24 +35,14 @@ const KitModal = ({ visible, hideModal, selectedKit }) => {
                             <Typography className="modalText">
                                 Valor do Kit: {selectedKit.price}
                             </Typography>
-                            <div className="btnModal">
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={() => navigate('/energy')}
-                                    className="modalButton"
-                                >
-                                    Compensação
-                                </Button>
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={() => navigate('/calculation')}
-                                    className="modalButtons"
-                                >
-                                    Comodato
-                                </Button>
-                            </div>
+                            <Button
+                                variant="contained"
+                                color="primary"
+                                onClick={() => navigate('/energy')}
+                                className="modalButton"
+                            >
+                                Calcular Kit
+                            </Button>
                         </div>
                     </div>
                 )}

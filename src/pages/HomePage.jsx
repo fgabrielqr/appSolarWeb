@@ -27,14 +27,6 @@ function HomePage() {
       <div className="container">
         <div className="headerContainer">
           <h1 className="title">Catálogo de Kits Solares</h1>
-          <Button
-            variant="contained"
-            startIcon={<Icon />}
-            onClick={() => navigate('/calculation')}
-            className="button"
-          >
-            <span>Calcular Projeto</span>
-          </Button>
         </div>
         <div className="cardContainer">
           {kits.map((kit, index) => (
@@ -49,7 +41,24 @@ function HomePage() {
             </Card>
           ))}
         </div>
-
+        <div className="btnModal">
+          <Button
+            variant="contained"
+            startIcon={<Icon />}
+            onClick={() => navigate('/calculation')}
+            className="button" // Adiciona classe para largura total
+          >
+            <span>Comodato</span>
+          </Button>
+          <Button
+            variant="contained"
+            startIcon={<Icon />}
+            onClick={() => navigate('/energy')}
+            className="Buttons" // Adiciona classe para largura total
+          >
+            <span>Compensação</span>
+          </Button>
+        </div>
 
         <KitModal
           visible={visible}
