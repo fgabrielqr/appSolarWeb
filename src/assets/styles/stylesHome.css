@@ -1,15 +1,8 @@
-/* Background */
 .background {
   width: 100%;
   height: 100%;
-  /* background-color: #081138;
-  background-image: url('/src/assets/Ilustra.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center; */
 }
 
-/* Container */
 .container {
   padding: 20px 16px;
   display: flex;
@@ -17,13 +10,12 @@
   flex-direction: column;
 }
 
-/* Title Styles */
 .headerContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 20px; /* Espaço entre o header e o restante da página */
+  margin-bottom: 20px;
 }
 
 .title {
@@ -42,87 +34,77 @@
   text-align: center;
 }
 
-/* Card Container */
 .cardContainer {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Quatro colunas */
-  gap: 20px; /* Espaçamento entre os cards */
-  justify-items: stretch; /* Garante que os cards ocupem toda a largura da coluna */
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px; 
+  justify-items: stretch; 
 }
 
-/* Card */
 .card {
-  width: 100%; /* O card agora ocupará 100% da coluna */
+  width: 100%;
   /* margin: 10px 0; */
   background-color: #fff;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Substituindo o 'elevation' */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 10px !important;
   display: flex;
-  flex-direction: column; /* Garante que o conteúdo do card se alinhe em coluna */
+  flex-direction: column;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona transição suave */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .card:hover {
-  transform: translateY(-5px); /* Move o card para cima */
-  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2); /* Aumenta a sombra no hover */
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* Card Content */
 .cardContent {
   display: flex;
   align-items: center;
   padding: 10px;
 }
 
-/* Card Image */
 .cardImage {
   width: 75px;
   height: 75px;
 }
 
-/* Card Text Container */
 .cardTextContainer {
   flex-grow: 1;
 }
 
-/* Card Title */
 .cardTitle {
   font-size: 16px;
   font-weight: bold;
   color: #081138;
 }
 
-/* Price */
 .price {
   font-size: 14px;
   color: #081138;
 }
 
-/* Modal Container */
 .modalContainer {
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  width: 50%; /* Define o tamanho do modal para 50% da tela */
-  max-width: 800px; /* Define um tamanho máximo para telas maiores */
-  min-width: 300px; /* Define um tamanho mínimo para telas pequenas */
+  width: 50%; 
+  max-width: 800px; 
+  min-width: 300px; 
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Centraliza o modal */
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra */
-  z-index: 1000; /* Garante que o modal fique na frente de outros elementos */
+  transform: translate(-50%, -50%); 
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); 
+  z-index: 1000; 
 }
 
-/* Modal Content */
 .modalContent {
   display: flex;
   align-items: center;
   padding: 10px;
 }
 
-/* Modal Image */
 .modalImage {
   width: 150px;
   height: 150px;
@@ -130,12 +112,10 @@
   margin-right: 15px;
 }
 
-/* Modal Text Container */
 .modalTextContainer {
   flex-grow: 1;
 }
 
-/* Modal Title */
 .modalTitle {
   font-size: 21px;
   font-weight: bold;
@@ -143,14 +123,12 @@
   color: #081138;
 }
 
-/* Modal Text */
 .modalText {
   font-size: 16px;
   margin-bottom: 5px;
   color: #081138;
 }
 
-/* Modal Button */
 .modalButton {
   margin-top: 25px !important;
   background-color: #7ec076 !important;
@@ -161,43 +139,54 @@
   align-self: flex-end;
 }
 
-/* Button */
+.modalButtons{
+  margin-top: 25px !important;
+  background-color: #fcbf02 !important;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  align-self: flex-end;
+}
+
+.btnModal{
+  display: flex;
+  gap: 15px
+}
+
 .buttonContainer {
   display: flex;
-  justify-content: center; /* Centraliza o botão horizontalmente */
+  justify-content: center;
   width: 100%;
 }
 
-/* Estilo do botão */
 .button {
   margin-top: 0px !important;
   background-color: #7ec076 !important;
   padding: 10px !important;
   border-radius: 50px !important;
-  width: 25%; /* Botão ocupa 90% da largura do contêiner */
+  width: 25%;
   color: white;
   border: none;
   cursor: pointer;
-  text-align: center; /* Garante que o texto fique centralizado */
+  text-align: center;
 }
 
-/* Button Text */
 .buttonText {
   font-size: 18px;
   color: white;
 }
 
-/* Responsividade para telas menores */
 @media (max-width: 1200px) {
   .cardContainer {
-    grid-template-columns: repeat(3, 1fr); /* Reduz para três colunas */
+    grid-template-columns: repeat(3, 1fr);
   }
  
 }
 
 @media (max-width: 900px) {
   .cardContainer {
-    grid-template-columns: repeat(2, 1fr); /* Reduz para duas colunas */
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -230,7 +219,7 @@
     display: none;
   }
   .modalContainer {
-    width: 80%; /* O modal ocupará 90% da tela em dispositivos menores */
+    width: 80%;
   }
   .modalImage {
     width: 100px;

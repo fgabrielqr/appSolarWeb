@@ -6,15 +6,16 @@ import '../assets/styles/stylesCalculation.css';
 function EnergySavingScreen() {
   const [kWhPerMonth, setKWhPerMonth] = useState('');
   const [months, setMonths] = useState('');
-  const [factor, setFactor] = useState('0.97');
   const [discountPercentage, setDiscountPercentage] = useState(null);
   const [finalValue, setFinalValue] = useState(null);
   const [savings, setSavings] = useState(null);
   const [errors, setErrors] = useState({
     kWhPerMonth: '',
     months: '',
-    factor: '',
   });
+
+  // Define o fator diretamente como uma constante
+  const factor = 0.97;
 
   const formatCurrency = (value) => {
     return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -22,7 +23,7 @@ function EnergySavingScreen() {
 
   const validateFields = () => {
     let valid = true;
-    const newErrors = { kWhPerMonth: '', months: '', factor: '' };
+    const newErrors = { kWhPerMonth: '', months: '' };
 
     if (!kWhPerMonth) {
       newErrors.kWhPerMonth = 'Por favor, insira o valor de kWh/mês.';
@@ -31,11 +32,6 @@ function EnergySavingScreen() {
 
     if (!months) {
       newErrors.months = 'Por favor, insira o número de meses.';
-      valid = false;
-    }
-
-    if (!factor) {
-      newErrors.factor = 'Por favor, insira o fator de multiplicação.';
       valid = false;
     }
 
@@ -48,9 +44,8 @@ function EnergySavingScreen() {
 
     const kWh = parseInt(kWhPerMonth, 10);
     const contractDuration = parseInt(months, 10);
-    const userFactor = parseFloat(factor);
 
-    if (isNaN(kWh) || isNaN(contractDuration) || isNaN(userFactor)) {
+    if (isNaN(kWh) || isNaN(contractDuration)) {
       setDiscountPercentage('Valores inválidos');
       setFinalValue(null);
       setSavings(null);
@@ -74,7 +69,7 @@ function EnergySavingScreen() {
     if (discountRange) {
       setDiscountPercentage(discountRange.discount);
 
-      const initialValue = kWh * userFactor;
+      const initialValue = kWh * factor; // Usa o fator pré-definido
       const discountedValue = initialValue * (1 - discountRange.discount / 100);
       const savingsValue = initialValue - discountedValue;
 
@@ -112,16 +107,6 @@ function EnergySavingScreen() {
             className="input"
           />
           {errors.months && <p className="error">{errors.months}</p>}
-
-          <label className="label">Fator de Multiplicação</label>
-          <input
-            type="number"
-            placeholder="Digite o fator de multiplicação"
-            value={factor}
-            onChange={(e) => setFactor(e.target.value)}
-            className="input"
-          />
-          {errors.factor && <p className="error">{errors.factor}</p>}
 
           <div className="buttonContainer">
             <button
