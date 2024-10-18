@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import '../assets/styles/stylesCalculation.css'; // Importando seu arquivo CSS
+import '../assets/styles/stylesCalculation.css';
 
 function CalculationPage() {
     const [kitValue, setKitValue] = useState('');
@@ -7,6 +7,11 @@ function CalculationPage() {
     const [numInstallments, setNumInstallments] = useState('');
     const [monthlyPayment, setMonthlyPayment] = useState(null);
     const [residualValue, setResidualValue] = useState(null);
+    const [errors, setErrors] = useState({
+        kitValue: '',
+        interestRate: '',
+        numInstallments: '',
+    });
 
     const formatCurrency = (value) => {
         const cleanValue = value.replace(/\D/g, ''); // Remove tudo que não for número
@@ -23,7 +28,32 @@ function CalculationPage() {
         setKitValue(formattedValue);
     };
 
+    const validateFields = () => {
+        let valid = true;
+        const newErrors = { kitValue: '', interestRate: '', numInstallments: '' };
+
+        if (!kitValue) {
+            newErrors.kitValue = 'Por favor, insira o valor do kit.';
+            valid = false;
+        }
+
+        if (!interestRate) {
+            newErrors.interestRate = 'Por favor, insira a taxa de juros.';
+            valid = false;
+        }
+
+        if (!numInstallments) {
+            newErrors.numInstallments = 'Por favor, insira o número de parcelas.';
+            valid = false;
+        }
+
+        setErrors(newErrors);
+        return valid;
+    };
+
     const calculateFixedInstallment = () => {
+        if (!validateFields()) return; // Se a validação falhar, a função não prossegue
+
         const P = parseFloat(kitValue.replace(/\D/g, '')) / 100; // Remove a máscara e converte para número
         const r = parseFloat(interestRate) / 100; // Converte a taxa de juros
         const n = parseInt(numInstallments, 10); // Número de parcelas
@@ -44,9 +74,6 @@ function CalculationPage() {
         setResidualValue(formatCurrency(residualValueCalculated.toFixed(2)));
     };
 
-    // Verifica se todos os campos estão preenchidos
-    const isFormValid = kitValue && interestRate && numInstallments;
-
     return (
         <div className="background">
             <div className="overlay">
@@ -62,6 +89,7 @@ function CalculationPage() {
                         className="input"
                         required
                     />
+                    {errors.kitValue && <p className="error">{errors.kitValue}</p>}
 
                     <label className="label">Taxa de Juros Mensal (%)</label>
                     <input
@@ -72,6 +100,7 @@ function CalculationPage() {
                         className="input"
                         required
                     />
+                    {errors.interestRate && <p className="error">{errors.interestRate}</p>}
 
                     <label className="label">Número de Parcelas</label>
                     <input
@@ -82,15 +111,17 @@ function CalculationPage() {
                         className="input"
                         required
                     />
+                    {errors.numInstallments && <p className="error">{errors.numInstallments}</p>}
+
                     <div className="buttonContainer">
                         <button
                             className="buttonCE"
                             onClick={calculateFixedInstallment}
-                            disabled={!isFormValid} // Desabilita o botão se os campos não estiverem preenchidos
                         >
                             CALCULAR
                         </button>
                     </div>
+
                     {monthlyPayment && (
                         <div className="resultContainer">
                             <h2 className="resultTitle">Valor da Parcela:</h2>
