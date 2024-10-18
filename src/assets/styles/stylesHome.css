@@ -2,7 +2,11 @@
 .background {
   width: 100%;
   height: 100%;
-  background-color: #081138;
+  /* background-color: #081138;
+  background-image: url('/src/assets/Ilustra.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center; */
 }
 
 /* Container */

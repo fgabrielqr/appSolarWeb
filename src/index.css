@@ -5,7 +5,12 @@
 html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
   background-color: #081138;
+  background-image: url('/src/assets/Ilustra.png'); /* Caminho para a sua imagem */
+  background-repeat: no-repeat; /* Evita a repetição da imagem */
+  background-size: cover; /* Faz com que a imagem cubra toda a tela */
+  background-position: center center; /* Centraliza a imagem */
 }
 
 
