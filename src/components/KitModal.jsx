@@ -38,7 +38,7 @@ const KitModal = ({ visible, hideModal, selectedKit }) => {
                             <Button
                                 variant="contained"
                                 color="primary"
-                                onClick={() => navigate('/energy')}
+                                onClick={() => navigate('/compensacao')}
                                 className="modalButton"
                             >
                                 Calcular Kit

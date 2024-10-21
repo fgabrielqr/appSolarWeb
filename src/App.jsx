@@ -7,8 +7,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/calculation" element={<CalculationPage />} />
-        <Route path="/energy" element={<EnergySavingScreen />} /> 
+        <Route path="/comodato" element={<CalculationPage />} />
+        <Route path="/compensacao" element={<EnergySavingScreen />} /> 
       </Routes>
     </Router>
   );

@@ -45,18 +45,18 @@ function HomePage() {
           <Button
             variant="contained"
             startIcon={<Icon />}
-            onClick={() => navigate('/calculation')}
+            onClick={() => navigate('/comodato')}
             className="button" // Adiciona classe para largura total
           >
-            <span>Compensação</span>
+            <span>Comodato</span>
           </Button>
           <Button
             variant="contained"
             startIcon={<Icon />}
-            onClick={() => navigate('/energy')}
+            onClick={() => navigate('/compensacao')}
             className="Buttons" // Adiciona classe para largura total
           >
-            <span>Comodato</span>
+            <span>Compensação</span>
           </Button>
         </div>
 
