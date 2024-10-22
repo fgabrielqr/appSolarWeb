@@ -9,6 +9,7 @@ function CalculationPage() {
     const [residualValue, setResidualValue] = useState(null);
     const [errors, setErrors] = useState({
         kitValue: '',
+        paymentType: '', // Adicionar erro para tipo de pagamento
         numInstallments: '',
     });
 
@@ -39,10 +40,15 @@ function CalculationPage() {
 
     const validateFields = () => {
         let valid = true;
-        const newErrors = { kitValue: '', numInstallments: '' };
+        const newErrors = { kitValue: '', paymentType: '', numInstallments: '' };
 
         if (!kitValue) {
             newErrors.kitValue = 'Por favor, insira o valor do kit.';
+            valid = false;
+        }
+
+        if (!paymentType) {
+            newErrors.paymentType = 'Por favor, selecione o tipo de pagamento.'; // Validação para o tipo de pagamento
             valid = false;
         }
 
@@ -103,6 +109,7 @@ function CalculationPage() {
                         <option value="Comodato">Comodato</option>
                         <option value="Cartão">Cartão</option>
                     </select>
+                    {errors.paymentType && <p className="error">{errors.paymentType}</p>} {/* Mensagem de erro */}
 
                     <label className="label">Número de Parcelas</label>
                     {paymentType === 'Cartão' ? (
