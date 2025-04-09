@@ -27,7 +27,7 @@ const KitModal = ({ visible, hideModal, selectedKit }) => {
                                 Sistema Fotovoltaico {selectedKit.name}
                             </Typography>
                             <Typography className="modalText" id="modal-description">
-                                {selectedKit.panels}: Painéis Sunova 585W
+                                {selectedKit.panels}: Painéis Pulling Energy 620 Watts
                             </Typography>
                             <Typography className="modalText">
                                 {selectedKit.inverters}: {selectedKit.mark}
