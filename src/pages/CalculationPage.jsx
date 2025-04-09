@@ -69,7 +69,7 @@ function CalculationPage() {
         let r = 0;
 
         if (paymentType === 'Comodato') {
-            r = 4 / 100; // Taxa de 4% para Comodato
+            r = 3 / 100; // Taxa de 3% para Comodato
         } else if (paymentType === 'Cartão') {
             r = 1 / 100; // Taxa de 1% para Cartão
         } else if (paymentType === 'Financiamento') {
