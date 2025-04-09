@@ -72,6 +72,8 @@ function CalculationPage() {
             r = 4 / 100; // Taxa de 4% para Comodato
         } else if (paymentType === 'Cartão') {
             r = 1 / 100; // Taxa de 1% para Cartão
+        } else if (paymentType === 'Financiamento') {
+            r = 5 / 100; // Taxa de 5% para Financiamento
         }
 
         const PMT = (P * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1);
@@ -84,6 +86,53 @@ function CalculationPage() {
         }
 
         setMonthlyPayment(formatCurrency(PMT.toFixed(2)));
+    };
+
+    const renderInstallmentsInput = () => {
+        if (paymentType === 'Cartão') {
+            return (
+                <select
+                    value={numInstallments}
+                    onChange={(e) => setNumInstallments(e.target.value)}
+                    className="input"
+                    required
+                >
+                    <option value="">Selecione o número de parcelas</option>
+                    {Array.from({ length: 12 }, (_, i) => i + 1).map((value) => (
+                        <option key={value} value={value}>
+                            {value}
+                        </option>
+                    ))}
+                </select>
+            );
+        } else if (paymentType === 'Financiamento') {
+            return (
+                <select
+                    value={numInstallments}
+                    onChange={(e) => setNumInstallments(e.target.value)}
+                    className="input"
+                    required
+                >
+                    <option value="">Selecione o número de parcelas</option>
+                    {Array.from({ length: 60 }, (_, i) => i + 1).map((value) => (
+                        <option key={value} value={value}>
+                            {value}
+                        </option>
+                    ))}
+                </select>
+            );
+        } else {
+            return (
+                <input
+                    type="text"
+                    placeholder="Digite o número de parcelas"
+                    value={numInstallments}
+                    onChange={(e) => setNumInstallments(e.target.value)}
+                    className="input"
+                    required
+                />
+            );
+        }
     };
 
     return (
@@ -108,34 +157,12 @@ function CalculationPage() {
                         <option value="">Selecione o tipo de pagamento</option>
                         <option value="Comodato">Comodato</option>
                         <option value="Cartão">Cartão</option>
+                        <option value="Financiamento">Financiamento</option>
                     </select>
                     {errors.paymentType && <p className="error">{errors.paymentType}</p>} {/* Mensagem de erro */}
 
                     <label className="label">Número de Parcelas</label>
-                    {paymentType === 'Cartão' ? (
-                        <select
-                            value={numInstallments}
-                            onChange={(e) => setNumInstallments(e.target.value)}
-                            className="input"
-                            required
-                        >
-                            <option value="">Selecione o número de parcelas</option>
-                            {Array.from({ length: 12 }, (_, i) => i + 1).map((value) => (
-                                <option key={value} value={value}>
-                                    {value}
-                                </option>
-                            ))}
-                        </select>
-                    ) : (
-                        <input
-                            type="text"
-                            placeholder="Digite o número de parcelas"
-                            value={numInstallments}
-                            onChange={(e) => setNumInstallments(e.target.value)}
-                            className="input"
-                            required
-                        />
-                    )}
+                    {renderInstallmentsInput()}
                     {errors.numInstallments && <p className="error">{errors.numInstallments}</p>}
 
                     <div className="buttonContainer">
