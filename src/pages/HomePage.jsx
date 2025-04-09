@@ -26,7 +26,7 @@ function HomePage() {
     <div className="background">
       <div className="container">
         <div className="headerContainer">
-          <h1 className="title">Catálogo de Kits Solares</h1>
+          <h1 className="titlehome">Catálogo de Kits Solares</h1>
         </div>
         <div className="cardContainer">
           {kits.map((kit, index) => (
