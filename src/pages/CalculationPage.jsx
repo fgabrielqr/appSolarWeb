@@ -71,7 +71,7 @@ function CalculationPage() {
         if (paymentType === 'Comodato') {
             r = 3.5 / 100; // Taxa de 3% para Comodato
         } else if (paymentType === 'Cartão') {
-            r = 1 / 100; // Taxa de 1% para Cartão
+            r = 1.93 / 100; // Taxa de 1.93% para Cartão
         } else if (paymentType === 'Financiamento') {
             r = 5 / 100; // Taxa de 5% para Financiamento
         }
@@ -155,9 +155,9 @@ function CalculationPage() {
                     <label className="label">Tipo de Pagamento</label>
                     <select value={paymentType} onChange={handlePaymentTypeChange} className="input" required>
                         <option value="">Selecione o tipo de pagamento</option>
-                        <option value="Comodato">Comodato</option>
-                        <option value="Cartão">Cartão</option>
-                        <option value="Financiamento">Financiamento</option>
+                        <option value="Comodato">Energia por assinatura</option>
+                        <option value="Cartão">Cartão/Financiamento</option>
+                        {/* <option value="Financiamento">Financiamento</option> */}
                     </select>
                     {errors.paymentType && <p className="error">{errors.paymentType}</p>} {/* Mensagem de erro */}
 
