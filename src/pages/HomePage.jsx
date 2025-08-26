@@ -48,7 +48,7 @@ function HomePage() {
             onClick={() => navigate('/comodato')}
             className="button" // Adiciona classe para largura total
           >
-            <span>Comodato</span>
+            <span>Energia por assinatura</span>
           </Button>
           <Button
             variant="contained"
